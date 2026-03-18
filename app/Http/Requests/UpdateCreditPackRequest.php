@@ -30,11 +30,13 @@ class UpdateCreditPackRequest extends FormRequest
                 Rule::unique('credit_packs', 'code')->ignore($this->route('credit_pack')),
             ],
             'name' => ['required', 'string', 'max:150'],
-            'credits' => ['required', 'integer', 'min:1'],
-            'price_ars' => ['required', 'integer', 'min:0'],
+            'credits_amount' => ['required', 'integer', 'min:1'],
+            'price_amount' => ['required', 'integer', 'min:0'],
+            'currency' => ['required', 'string', 'max:10'],
             'description' => ['nullable', 'string'],
             'is_active' => ['nullable', 'boolean'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
+            'metadata' => ['nullable', 'array'],
         ];
     }
 }

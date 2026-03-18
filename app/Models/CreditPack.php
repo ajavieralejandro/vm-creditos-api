@@ -17,11 +17,13 @@ class CreditPack extends Model
     protected $fillable = [
         'code',
         'name',
-        'credits',
-        'price_ars',
+        'credits_amount',
+        'price_amount',
+        'currency',
         'description',
         'is_active',
         'sort_order',
+        'metadata',
     ];
 
     /**
@@ -30,9 +32,10 @@ class CreditPack extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'credits' => 'integer',
-        'price_ars' => 'integer',
+        'credits_amount' => 'integer',
+        'price_amount' => 'integer',
         'sort_order' => 'integer',
         'is_active' => 'boolean',
+        'metadata' => 'array',
     ];
 }

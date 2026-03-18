@@ -16,7 +16,8 @@ class CreditPackController extends Controller
      */
     public function index(): JsonResponse
     {
-        $packs = CreditPack::orderBy('sort_order')
+        $packs = CreditPack::where('is_active', true)
+            ->orderBy('sort_order')
             ->orderByDesc('id')
             ->get();
 
